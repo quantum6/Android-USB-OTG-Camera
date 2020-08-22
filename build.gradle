@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.2'
+        classpath 'com.android.tools.build:gradle:4.0.1'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 }
@@ -13,8 +13,14 @@ buildscript {
 allprojects {
     repositories {
         google()
-        maven { url 'http://raw.github.com/saki4510t/libcommon/master/repository/' }
+        //maven { url 'http://raw.github.com/saki4510t/libcommon/master/repository/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         jcenter()
+
+        flatDir {
+            dirs '../aars'
+        }
+
     }
 }
 

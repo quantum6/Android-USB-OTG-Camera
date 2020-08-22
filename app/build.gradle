@@ -27,7 +27,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     implementation "androidx.appcompat:appcompat:${androidXVersion}"
-
+    implementation(name:'common-4.1.1', ext:'aar')
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
 

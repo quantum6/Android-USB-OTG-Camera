@@ -9,3 +9,7 @@
 /captures
 .externalNativeBuild
 .tags*
+/libusbcamera/src/main/bin
+/app/src/main/bin
+/app/src/main/gen
+/libusbcamera/src/main/gen

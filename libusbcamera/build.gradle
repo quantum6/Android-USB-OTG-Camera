@@ -34,5 +34,6 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     implementation "androidx.appcompat:appcompat:${androidXVersion}"
-    api "com.serenegiant:common:${commonLibVersion}"
+    implementation(name:'common-4.1.1', ext:'aar')
+    // api "com.serenegiant:common:${commonLibVersion}"
 }
