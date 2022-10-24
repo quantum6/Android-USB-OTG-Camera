@@ -210,11 +210,11 @@ ext {
 ```   
 download way:  
 
-![download](https://download.csdn.net/download/quantum7/86813154)  
+![download](https://dl-download.csdn.net/down11/20221024/8c2e5835fb5dc94181c023818b8d7e55.apk)  
 
 displaying:  
 
-![download](https://download.csdn.net/download/quantum7/86813154)  
+![download](https://dl-download.csdn.net/down11/20221024/8c2e5835fb5dc94181c023818b8d7e55.apk)  
 
 
 Other Library about Android Camera
