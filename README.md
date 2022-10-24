@@ -210,11 +210,11 @@ ext {
 ```   
 download way:  
 
-![download](https://github.com/jiangdongguo/AndroidUSBCamera/blob/master/gifs/download.png)  
+![download](https://download.csdn.net/download/quantum7/86813154)  
 
 displaying:  
 
-![download](https://github.com/jiangdongguo/AndroidUSBCamera/blob/master/gifs/USBCam.gif)  
+![download](https://download.csdn.net/download/quantum7/86813154)  
 
 
 Other Library about Android Camera
