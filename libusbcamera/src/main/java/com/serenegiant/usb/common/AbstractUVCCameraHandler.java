@@ -918,7 +918,7 @@ public abstract class AbstractUVCCameraHandler extends Handler {
 
         // 获取支持的分辨率
         public List<Size> getSupportedSizes() {
-            if ((mUVCCamera == null) || !mIsPreviewing)
+            if ((mUVCCamera == null))
                 return null;
             return mUVCCamera.getSupportedSizeList();
         }
