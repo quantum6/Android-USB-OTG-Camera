@@ -3,7 +3,6 @@ package com.serenegiant.usb.encoder;
 import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.os.Build;
-import android.os.Environment;
 import android.util.Log;
 
 import com.jiangdg.usbcamera.utils.FileUtils;
@@ -149,7 +148,7 @@ public abstract class MediaEncoder implements Runnable {
         boolean localRequestDrain;
 		boolean localIsNotExit;
 		// 创建h264
-		FileUtils.createfile(Environment.getExternalStorageDirectory().getAbsolutePath()+"/test222.h264");
+		FileUtils.createfile(FileUtils.ROOT_PATH +"/test234.h264");
 
         while (isRunning) {
         	synchronized (mSync) {

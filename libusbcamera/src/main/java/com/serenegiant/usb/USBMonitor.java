@@ -30,19 +30,17 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbInterface;
 import android.hardware.usb.UsbManager;
 import android.os.Build;
-import android.os.Environment;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
 
+import com.jiangdg.usbcamera.utils.FileUtils;
 import com.serenegiant.utils.BuildCheck;
 import com.serenegiant.utils.HandlerThreadHandler;
 
@@ -52,9 +50,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.lang.ref.WeakReference;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -179,7 +175,8 @@ public final class USBMonitor {
 			final Context context = mWeakContext.get();
 			if (context != null) {
 				mPermissionIntent = PendingIntent.getBroadcast(context, 0, new Intent(ACTION_USB_PERMISSION),
-						PendingIntent.FLAG_IMMUTABLE);
+						//30(Android 11) : Build.VERSION_CODES.R
+						Build.VERSION.SDK_INT <= 30 ? 0 : PendingIntent.FLAG_IMMUTABLE);
 				final IntentFilter filter = new IntentFilter(ACTION_USB_PERMISSION);
 				// ACTION_USB_DEVICE_ATTACHED never comes on some devices so it should not be added here
 				filter.addAction(ACTION_USB_DEVICE_ATTACHED);
@@ -312,7 +309,7 @@ public final class USBMonitor {
 		// get detected devices
 		final HashMap<String, UsbDevice> deviceList = mUsbManager.getDeviceList();
 		// store those devices info before matching filter xml file
-		String fileName = Environment.getExternalStorageDirectory().getAbsolutePath()+ "/USBCamera/failed_devices.txt";
+		String fileName = FileUtils.ROOT_PATH + "/USBCamera/failed_devices.txt";
 
 		File logFile = new File(fileName);
 		if(!logFile.getParentFile().exists()) {

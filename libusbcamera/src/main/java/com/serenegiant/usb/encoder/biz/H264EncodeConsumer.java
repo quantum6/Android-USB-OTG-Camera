@@ -7,8 +7,9 @@ import android.media.MediaCodecList;
 import android.media.MediaFormat;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
+
+import com.jiangdg.usbcamera.utils.FileUtils;
 
 import java.io.BufferedOutputStream;
 import java.io.IOException;
@@ -36,7 +37,7 @@ public class H264EncodeConsumer extends Thread {
     private boolean isEncoderStart = false;
 
     private MediaFormat mFormat;
-    private static String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/test2.h264";
+    private static String path = FileUtils.ROOT_PATH + "/test2.h264";
     private BufferedOutputStream outputStream;
     final int millisPerframe = 1000 / 20;
     long lastPush = 0;

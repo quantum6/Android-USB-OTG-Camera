@@ -14,8 +14,9 @@ import java.io.IOException;
 
 public class FileUtils {
 
+    public static final String ROOT_PATH = Environment.getExternalStorageDirectory().getAbsolutePath();
+
     private static BufferedOutputStream outputStream;
-    public static String ROOT_PATH = Environment.getExternalStorageDirectory().getAbsolutePath()+File.separator;
 
     public static void createfile(String path){
         File file = new File(path);

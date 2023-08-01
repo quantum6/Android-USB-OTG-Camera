@@ -27,8 +27,6 @@ import java.util.Objects;
  */
 
 public class UVCCameraHelper {
-    public static final String ROOT_PATH = Environment.getExternalStorageDirectory().getAbsolutePath()
-            + File.separator;
     public static final String SUFFIX_JPEG = ".jpg";
     public static final String SUFFIX_MP4 = ".mp4";
     private static final String TAG = "UVCCameraHelper";
