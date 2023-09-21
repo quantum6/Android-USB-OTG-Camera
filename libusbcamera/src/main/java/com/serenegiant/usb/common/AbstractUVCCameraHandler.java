@@ -3,7 +3,6 @@ package com.serenegiant.usb.common;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
 import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
@@ -50,7 +49,6 @@ import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
@@ -418,7 +416,7 @@ public abstract class AbstractUVCCameraHandler extends Handler {
         private MediaVideoBufferEncoder mVideoEncoder;
         private Mp4MediaMuxer mMuxer;
         private boolean isPushing;
-        private String videoPath;
+        private String mVideoPath;
         private boolean isSupportOverlay;
 //		private boolean isAudioThreadStart;
 
@@ -682,8 +680,8 @@ public abstract class AbstractUVCCameraHandler extends Handler {
                     // init overlay engine
                     TxtOverlay.getInstance().init(mWidth, mHeight);
                 }
-                videoPath = params.getRecordPath();
-                File file = new File(videoPath);
+                mVideoPath = params.getRecordPath();
+                File file = new File(mVideoPath);
                 if(! Objects.requireNonNull(file.getParentFile()).exists()) {
                     file.getParentFile().mkdirs();
                 }
@@ -721,7 +719,7 @@ public abstract class AbstractUVCCameraHandler extends Handler {
             callOnStopRecording();
             // 返回路径
             if (mListener != null) {
-                mListener.onRecordResult(videoPath + ".mp4");
+                mListener.onRecordResult(mVideoPath);
             }
         }
 
@@ -918,7 +916,7 @@ public abstract class AbstractUVCCameraHandler extends Handler {
 
         // 获取支持的分辨率
         public List<Size> getSupportedSizes() {
-            if ((mUVCCamera == null))
+            if ((mUVCCamera == null) || !mIsPreviewing)
                 return null;
             return mUVCCamera.getSupportedSizeList();
         }

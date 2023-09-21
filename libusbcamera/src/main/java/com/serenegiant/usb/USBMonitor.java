@@ -175,8 +175,8 @@ public final class USBMonitor {
 			final Context context = mWeakContext.get();
 			if (context != null) {
 				mPermissionIntent = PendingIntent.getBroadcast(context, 0, new Intent(ACTION_USB_PERMISSION),
-						//30(Android 11) : Build.VERSION_CODES.R
-						Build.VERSION.SDK_INT <= 30 ? 0 : PendingIntent.FLAG_IMMUTABLE);
+						//Build.VERSION.SDK_INT <= 30 ? 0 : PendingIntent.FLAG_IMMUTABLE);
+						0);
 				final IntentFilter filter = new IntentFilter(ACTION_USB_PERMISSION);
 				// ACTION_USB_DEVICE_ATTACHED never comes on some devices so it should not be added here
 				filter.addAction(ACTION_USB_DEVICE_ATTACHED);
